@@ -45,9 +45,10 @@ Make sure the path matches the ROOT_LOCATION in the constants.py
 # Global Twitch Highlights Creator channel (rlhc)
 0 19 * * * python3 /root/twitch-clip-publisher/bot.py rlhc day twitch 6 1
 0 2 * * 0 python3 /root/twitch-clip-publisher/bot.py rlhc week twitch 6 1
+0 8 * * * python3 /root/twitch-clip-publisher/compilations.py rlhc twitch 6 1
 
-# Just chatting Highlights Creator channel (jchc)
-0 17 * * * python3 /root/twitch-clip-publisher/bot.py jchc day justchatting 6 0
+# Apex Legends Highlights Creator channel (jchc)
+0 17 * * * python3 /root/twitch-clip-publisher/bot.py jchc day apexlegends 6 0
 
 # Super Smash Bros. Ultimate Highlights Creator channel (hhc)
 0 16 * * * python3 /root/twitch-clip-publisher/bot.py hhc day supersmashbrosultimate 6 0
