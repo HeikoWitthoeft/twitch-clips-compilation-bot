@@ -20,6 +20,7 @@ This bot is currently being used for this YouTube channel:
 - ```sudo add-apt-repository ppa:kirillshkrogalev/ffmpeg-next```
 - ```sudo apt-get install ffmpeg```
 - ```sudo apt install libmagick++-dev```
+
 https://askubuntu.com/questions/873112/imagemagick-cannot-be-detected-by-moviepy
 
 ## Fonts
@@ -28,7 +29,7 @@ Install fonts in `/usr/local/share/fonts` and reboot.
 ### Secrets
 
 - Create secrets directory in root.
-- Create `secrets/youtube_client_credentials.json` with your Installed App credentials from the [Google Cloud Console](https://console.cloud.google.com/apis/credentials)
+- Create `secrets/youtube_client_secret.json` with your Installed App credentials from the [Google Cloud Console](https://console.cloud.google.com/apis/credentials)
 - Create `secrets/twitch_secret.json` file with contents:
 ```
 {
