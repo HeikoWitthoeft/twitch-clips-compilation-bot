@@ -19,6 +19,8 @@ This bot is currently being used for this YouTube channel:
 - ```apt-get install imagemagick```
 - ```sudo add-apt-repository ppa:kirillshkrogalev/ffmpeg-next```
 - ```sudo apt-get install ffmpeg```
+- ```sudo apt install libmagick++-dev```
+https://askubuntu.com/questions/873112/imagemagick-cannot-be-detected-by-moviepy
 
 ## Fonts
 Install fonts in `/usr/local/share/fonts` and reboot.
