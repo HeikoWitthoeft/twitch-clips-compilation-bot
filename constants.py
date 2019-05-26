@@ -1,5 +1,5 @@
 # General config
-ROOT_LOCATION = ""  # End with / if using a location
+ROOT_LOCATION = "/projects/twitch-clips-compilation-bot/"  # End with / if using a location
 SECRETS_ROOT_LOCATION = ROOT_LOCATION + "secrets/"
 ASSETS_LOCATION = ROOT_LOCATION + "assets/"
 DOWNLOAD_LOCATION = ASSETS_LOCATION + "downloads/"
