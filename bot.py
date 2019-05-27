@@ -16,17 +16,17 @@ import constants
 
 if __name__ == "__main__":
     parameters = Parameters(script_name=sys.argv[0], destination=sys.argv[1],
-                            video_type=sys.argv[2], game=sys.argv[3], count=int(sys.argv[4]), custom_thumbnails=sys.argv[5])
+                            video_type=sys.argv[2], game=sys.argv[3], count=int(sys.argv[4]), custom_thumbnails=sys.argv[5], channelg=sys.argv[6])
     logger = Logger(parameters)
 
     # clips = twitchService.get_mock_clips(count=parameters.count)
     clips = twitchService.get_top_clips(
-        period=parameters.video_type.name, game=parameters.game.name, count=parameters.count)
+        period=parameters.video_type.name, game=parameters.game.name, count=parameters.count, logger=logger, channel=parameters.channelg)
 
     for clip in clips:
         twitchService.download_clip(
             constants.DOWNLOAD_LOCATION, clip['slug'], clip['channel_slug'])
-
+ 
     video_count = Video.select().where(
         (Video.destination == parameters.destination) &
         (Video.type == parameters.video_type) &

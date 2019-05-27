@@ -2,24 +2,27 @@ import requests
 import os
 import json
 import urllib.request
-
+import sys
 import constants
-
+import json
 
 def get_client_id():
     secrets = json.load(open(constants.TWITCH_SECRETS_FILE))['client_id']
     return secrets
 
 
-def get_top_clips(period, game, count):
+def get_top_clips(period, game, channel, count, logger):
     """
         Fetch the amount of clips until we hit the count.
     """
-    response = fetch_top_clips(period, game, 100)
-
+    logger.logs('1. ' + channel)
+    response = fetch_top_clips(period, game, 100 , channel)
+    #Starting script:sys.stdout.write('%s', response)
+    y = json.dumps(response)
+    logger.logs('2. ' + y)
     # Retry if failed the first time. Twitch API has errors on the first call for some reason.
     if 'clips' not in response:
-        response = fetch_top_clips(period, game, 100)
+        response = fetch_top_clips(period, game, 100, channel)
 
     return format_clips(response['clips'], count)
 
@@ -34,7 +37,7 @@ def get_mock_clips(count):
     return format_clips(data['clips'], count=count)
 
 
-def fetch_top_clips(period, game, count):
+def fetch_top_clips(period, game, count, channel):
     headers = {
         'Accept': 'application/vnd.twitchtv.v5+json',
         'Client-ID': get_client_id(),
@@ -44,14 +47,16 @@ def fetch_top_clips(period, game, count):
         params = (
             ('period', period),
             ('count', count),
-            ('language', 'en')
+            ('language', 'de,en')
         )
     else:
         params = (
-            ('period', period),
+            ('period', period), 
             ('game', clean_text(game)),
+            ('channel',  channel),
             ('count', count),
-            ('language', 'en')
+            ('language', 'de,en'),
+            ('trending', 'false')
         )
 
     response = requests.get(

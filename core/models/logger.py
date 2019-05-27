@@ -9,8 +9,12 @@ class Logger:
         self.start_script(parameters)
 
     def log(self, message, exception):
-        logging.warning(message)
+        logging.warn(message)
         logging.exception(exception)
+    
+    def logs(self, message):
+        print(message)
+        logging.warn(message)
 
     def start_script(self, parameters):
         message = 'Starting script: {0} with parameters: {1}, {2}, {3}, {4}, {5}'.format(
