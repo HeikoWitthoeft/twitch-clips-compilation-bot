@@ -19,12 +19,12 @@ if __name__ == "__main__":
     parameters = Parameters(script_name=sys.argv[0], destination=sys.argv[1],
                             video_type=sys.argv[2], game=sys.argv[3], count=int(sys.argv[4]), custom_thumbnails=sys.argv[5], channels=sys.argv[6])
     logger = Logger(parameters)
-
+    clips = []
     channels = parameters.channels.split(',')
     for channel in channels:
     # clips = twitchService.get_mock_clips(count=parameters.count)
-        clips = twitchService.get_top_clips(
-            period=parameters.video_type.name, game=parameters.game.name, count=parameters.count, logger=logger, channel=channel)
+        clips.append(twitchService.get_top_clips(
+            period=parameters.video_type.name, game=parameters.game.name, count=parameters.count, logger=logger, channel=channel))
         random.shuffle(clips)
 
     for clip in clips:
