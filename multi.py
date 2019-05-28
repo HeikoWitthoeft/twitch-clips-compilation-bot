@@ -23,8 +23,8 @@ if __name__ == "__main__":
     channels = parameters.channels.split(',')
     for channel in channels:
     # clips = twitchService.get_mock_clips(count=parameters.count)
-        clips.append(twitchService.get_top_clips(
-            period=parameters.video_type.name, game=parameters.game.name, count=parameters.count, logger=logger, channel=channel))
+        clips = clips + twitchService.get_top_clips(
+            period=parameters.video_type.name, game=parameters.game.name, count=parameters.count, logger=logger, channel=channel)
         random.shuffle(clips)
 
     for clip in clips:
