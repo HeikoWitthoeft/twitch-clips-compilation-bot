@@ -116,6 +116,9 @@ def saveCredentials(CREDENTIALS_FILE, credentials):
 
 
 def initializeUpload(youtube, title, description, file, category, keywords, privacyStatus):
+    if keywords is None:
+        keywords = 'octacore'
+
     tags = keywords.split(',')
 
     body = dict(

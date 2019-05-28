@@ -1,7 +1,7 @@
 from core.models.models import Type, Destination, Game
 
 class Parameters:
-    def __init__(self, script_name, destination, video_type, count, game, custom_thumbnails=False, channelg=''):
+    def __init__(self, script_name, destination, video_type, count, game, custom_thumbnails=False, channels=[]):
         destination, created = Destination.get_or_create(name=destination)
 
         self.destination = Destination.get(name=destination.name)
@@ -10,4 +10,4 @@ class Parameters:
         self.game = Game.get(cli=game)
         self.count = count
         self.custom_thumbnails = bool(int(custom_thumbnails))
-        self.channelg = channelg
+        self.channels = channels
