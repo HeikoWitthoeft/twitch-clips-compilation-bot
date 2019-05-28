@@ -38,8 +38,12 @@ if __name__ == "__main__":
         (Video.destination == parameters.destination)
     ).count() + 1
 
+    title = 'compilation'
+    if sys.argv[6] is not None:
+        title = sys.argv[6]
+
     video_title = metaService.create_video_title(
-        parameters.channelg, video_count, parameters.video_type.name, parameters.game.full)
+        title, video_count, parameters.video_type.name, parameters.game.full)
 
     video = Video.create(title=video_title, game=parameters.game,
                          type=parameters.video_type, destination=parameters.destination)

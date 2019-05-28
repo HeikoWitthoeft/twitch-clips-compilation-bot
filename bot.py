@@ -21,7 +21,7 @@ if __name__ == "__main__":
 
     # clips = twitchService.get_mock_clips(count=parameters.count)
     clips = twitchService.get_top_clips(
-        period=parameters.video_type.name, game=parameters.game.name, count=parameters.count, logger=logger, channel=parameters.channels[0])
+        period=parameters.video_type.name, game=parameters.game.name, count=parameters.count, logger=logger, channel=parameters.channels)
 
     for clip in clips:
         twitchService.download_clip(
@@ -35,7 +35,7 @@ if __name__ == "__main__":
     ).count() + 1
 
     video_title = metaService.create_video_title(
-        parameters.channelg, video_count, parameters.video_type.name, parameters.game.full)
+        parameters.channels, video_count, parameters.video_type.name, parameters.game.full)
 
     video = Video.create(title=video_title, game=parameters.game,
                          type=parameters.video_type, destination=parameters.destination)
