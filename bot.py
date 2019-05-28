@@ -35,7 +35,7 @@ if __name__ == "__main__":
     ).count() + 1
 
     video_title = metaService.create_video_title(
-        clips[0]['title'], video_count, parameters.video_type.name, parameters.game.full)
+        parameters.channelg, video_count, parameters.video_type.name, parameters.game.full)
 
     video = Video.create(title=video_title, game=parameters.game,
                          type=parameters.video_type, destination=parameters.destination)
@@ -80,4 +80,4 @@ if __name__ == "__main__":
 
     youtubeService.upload_video_to_youtube(config)
 
-    os.remove(output)
+    #os.remove(output)

@@ -19,7 +19,7 @@ def get_keywords(game, clips):
 
 def create_video_title(clip_title, video_count, video_type, game):
     return "%s | Most Viewed %s Clips Of The %s #%s" % (
-        shorten_title_if_needed(clip_title.upper(), 45), game, video_type.capitalize(), video_count)
+        shorten_title_if_needed(clip_title, 45), game, video_type.capitalize(), video_count)
 
 
 def create_channel_compilation_video_title(clip, game, video_count):
